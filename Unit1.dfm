@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
-  Caption = 'Form1'
+  Caption = #1042#1072#1088#1080#1072#1085#1090' 4. '#1041#1077#1083#1103#1082#1086#1074' '#1070'.'#1052'.'
   ClientHeight = 482
   ClientWidth = 872
   Color = clBtnFace
