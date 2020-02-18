@@ -10,6 +10,8 @@
 #include <Vcl.Buttons.hpp>
 #include <Vcl.ExtCtrls.hpp>
 #include <Vcl.ComCtrls.hpp>
+#include <System.Actions.hpp>
+#include <Vcl.ActnList.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -21,7 +23,6 @@ __published:	// IDE-managed Components
 	TGroupBox *GroupBox1;
 	TGroupBox *GroupBox2;
 	TGroupBox *GroupBox3;
-	TStatusBar *StatusBar1;
 	TLabel *Label1;
 	TEdit *Edit1;
 	TLabel *Label2;
@@ -31,6 +32,12 @@ __published:	// IDE-managed Components
 	TMemo *Memo2;
 	TMemo *Memo3;
 	TProgressBar *ProgressBar1;
+	TActionList *ActionList1;
+	TAction *PrAction;
+	TAction *PrStop;
+	void __fastcall PrActionExecute(TObject *Sender);
+	void __fastcall PrStopExecute(TObject *Sender);
+	void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

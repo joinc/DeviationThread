@@ -1,6 +1,7 @@
 __history
 *.local
 Win32
+__recovery
 
 # Prerequisites
 *.d

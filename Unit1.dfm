@@ -1,9 +1,11 @@
 object Form1: TForm1
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
   Caption = 'Form1'
-  ClientHeight = 501
-  ClientWidth = 874
+  ClientHeight = 482
+  ClientWidth = 872
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,12 +13,13 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 874
+    Width = 872
     Height = 49
     Align = alTop
     Caption = 'Panel1'
@@ -28,13 +31,14 @@ object Form1: TForm1
       Top = 8
       Width = 105
       Height = 35
-      Caption = #1047#1072#1087#1091#1089#1090#1080#1090#1100
+      Action = PrAction
     end
     object SpeedButton2: TSpeedButton
       Left = 118
       Top = 8
       Width = 97
       Height = 35
+      Action = PrStop
       Caption = #1054#1089#1090#1072#1085#1086#1074#1080#1090#1100
     end
     object Label1: TLabel
@@ -96,8 +100,8 @@ object Form1: TForm1
   object Panel2: TPanel
     Left = 0
     Top = 49
-    Width = 874
-    Height = 452
+    Width = 872
+    Height = 433
     Align = alClient
     Caption = 'Panel2'
     ShowCaption = False
@@ -162,16 +166,6 @@ object Form1: TForm1
         TabOrder = 0
       end
     end
-    object StatusBar1: TStatusBar
-      Left = 1
-      Top = 432
-      Width = 872
-      Height = 19
-      Panels = <>
-      ExplicitLeft = 624
-      ExplicitTop = 440
-      ExplicitWidth = 0
-    end
     object Memo4: TMemo
       Left = 649
       Top = 6
@@ -200,14 +194,26 @@ object Form1: TForm1
         #1047#1072#1076#1072#1085#1080#1077' '#1041': '#1042#1099#1095#1080#1089#1083#1077#1085#1080#1077' '#1086#1090#1082#1083#1086#1085#1077#1085#1080#1081' '
         #1082#1072#1078#1076#1086#1075#1086' '#1079#1085#1072#1095#1077#1085#1080#1103' '#1086#1090' '#1089#1088#1077#1076#1085#1077#1075#1086' '
         #1072#1088#1080#1092#1084#1077#1090#1080#1095#1077#1089#1082#1086#1075#1086)
-      TabOrder = 4
+      TabOrder = 3
     end
     object ProgressBar1: TProgressBar
       Left = 7
       Top = 399
       Width = 858
       Height = 24
-      TabOrder = 5
+      TabOrder = 4
+    end
+  end
+  object ActionList1: TActionList
+    Left = 832
+    Top = 408
+    object PrAction: TAction
+      Caption = #1047#1072#1087#1091#1089#1090#1080#1090#1100
+      OnExecute = PrActionExecute
+    end
+    object PrStop: TAction
+      Caption = 'PrStop'
+      OnExecute = PrStopExecute
     end
   end
 end
