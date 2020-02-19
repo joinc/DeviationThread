@@ -93,6 +93,9 @@ void Thread3( void* pParams ) {
 void __fastcall TForm1::PrActionExecute(TObject *Sender)
 {
 	if ((ntime = StrToInt(Form1->Edit1->Text))&&(nmass = StrToInt(Form1->Edit2->Text))) {
+		if (ntime < 100) {
+			ntime = 100;
+		}
 		hthread1 = (HANDLE)_beginthreadNT(Thread1, 4096, (void *)2, NULL, 0, &threadid1);
 		hthread2 = (HANDLE)_beginthreadNT(Thread2, 4096, (void *)3, NULL, 0, &threadid2);
 		hthread3 = (HANDLE)_beginthreadNT(Thread3, 4096, (void *)4, NULL, 0, &threadid3);

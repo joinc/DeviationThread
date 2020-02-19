@@ -2,6 +2,7 @@ __history
 *.local
 Win32
 __recovery
+__astcache
 
 # Prerequisites
 *.d
