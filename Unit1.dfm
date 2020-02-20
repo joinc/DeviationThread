@@ -4,8 +4,8 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #1042#1072#1088#1080#1072#1085#1090' 4. '#1041#1077#1083#1103#1082#1086#1074' '#1070'.'#1052'.'
-  ClientHeight = 482
-  ClientWidth = 872
+  ClientHeight = 624
+  ClientWidth = 1021
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +19,7 @@ object Form1: TForm1
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 872
+    Width = 1021
     Height = 49
     Align = alTop
     Caption = 'Panel1'
@@ -97,8 +97,8 @@ object Form1: TForm1
   object Panel2: TPanel
     Left = 0
     Top = 49
-    Width = 872
-    Height = 433
+    Width = 1021
+    Height = 575
     Align = alClient
     Caption = 'Panel2'
     ShowCaption = False
@@ -106,15 +106,15 @@ object Form1: TForm1
     object GroupBox1: TGroupBox
       Left = 7
       Top = 6
-      Width = 208
-      Height = 387
+      Width = 98
+      Height = 522
       Caption = #1052#1072#1089#1089#1080#1074' A'
       TabOrder = 0
       object Memo1: TMemo
         Left = 2
         Top = 15
-        Width = 204
-        Height = 370
+        Width = 94
+        Height = 505
         Align = alClient
         ReadOnly = True
         ScrollBars = ssVertical
@@ -122,17 +122,17 @@ object Form1: TForm1
       end
     end
     object GroupBox2: TGroupBox
-      Left = 221
+      Left = 111
       Top = 6
-      Width = 208
-      Height = 387
+      Width = 266
+      Height = 522
       Caption = #1047#1072#1076#1072#1085#1080#1077' B'
       TabOrder = 1
       object Memo2: TMemo
         Left = 2
         Top = 15
-        Width = 204
-        Height = 370
+        Width = 262
+        Height = 505
         Align = alClient
         ReadOnly = True
         ScrollBars = ssVertical
@@ -140,17 +140,17 @@ object Form1: TForm1
       end
     end
     object GroupBox3: TGroupBox
-      Left = 435
+      Left = 383
       Top = 6
-      Width = 208
-      Height = 387
+      Width = 409
+      Height = 522
       Caption = #1047#1072#1076#1072#1085#1080#1077' C'
       TabOrder = 2
       object Memo3: TMemo
         Left = 2
         Top = 15
-        Width = 204
-        Height = 370
+        Width = 405
+        Height = 505
         Align = alClient
         ReadOnly = True
         ScrollBars = ssVertical
@@ -158,11 +158,11 @@ object Form1: TForm1
       end
     end
     object Memo4: TMemo
-      Left = 649
+      Left = 798
       Top = 6
       Width = 216
-      Height = 387
-      Color = cl3DLight
+      Height = 522
+      Color = clBtnFace
       Enabled = False
       Lines.Strings = (
         #1056#1072#1079#1088#1072#1073#1086#1090#1072#1090#1100' '#1087#1088#1086#1075#1088#1072#1084#1084#1091', '#1082#1086#1090#1086#1088#1072#1103' '
@@ -189,14 +189,14 @@ object Form1: TForm1
     end
     object ProgressBar1: TProgressBar
       Left = 7
-      Top = 399
-      Width = 858
-      Height = 24
+      Top = 534
+      Width = 1007
+      Height = 33
       TabOrder = 4
     end
   end
   object ActionList1: TActionList
-    Left = 816
+    Left = 968
     Top = 400
     object PrAction: TAction
       Caption = #1047#1072#1087#1091#1089#1090#1080#1090#1100
