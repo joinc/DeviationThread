@@ -13,13 +13,13 @@ int amount_number = 20;
 int a_array[500];
 int time_sleep = 500;
 int count = 0;
+const int number_max = 999;
+const int number_min = -999;
 HANDLE hthread1, hthread2, hthread3;
 unsigned long threadid1, threadid2, threadid3;
 
 //---------------------------------------------------------------------------
-__fastcall TForm1::TForm1(TComponent* Owner)
-	: TForm(Owner)
-{
+__fastcall TForm1::TForm1(TComponent* Owner): TForm(Owner) {
 }
 //---------------------------------------------------------------------------
 void Thread1( void* pParams ) {
@@ -27,11 +27,11 @@ void Thread1( void* pParams ) {
 	String localStr;
 
 	Form1->Memo1->Lines->Clear();
-	count = 0;
+	Form1->ProgressBar1->Position = 0;
 	randomize();
 	for (int i = 0; i < amount_number; i++ ) {
 		count = i + 1;
-		a_array[i] = random(2000)-1000;
+		a_array[i] = random(2 * number_max) + number_min;
 		if (count < 10) { localStr = "0"; } else { localStr = ""; }
 		localStr += IntToStr(count)+". ";
 		Form1->Memo1->Lines->Add(localStr+IntToStr(a_array[i]));
@@ -48,7 +48,7 @@ void Thread1( void* pParams ) {
 }
 //---------------------------------------------------------------------------
 void Thread2( void* pParams ) {
-	int i, min_number, max_number;
+	int i, value_min, value_max;
 	int c = 0;
 	String localStr;
 
@@ -56,16 +56,16 @@ void Thread2( void* pParams ) {
 	while (1) {
 		if (c < count) {
 			c++;
-			min_number = 1000;
-			max_number = -1000;
+			value_min = number_max;
+			value_max = number_min;
 			for (i = 0; i < c; i++) {
-				if (a_array[i] >= max_number) max_number = a_array[i];
-				if (a_array[i] <= min_number) min_number = a_array[i];
+				if (a_array[i] >= value_max) value_max = a_array[i];
+				if (a_array[i] <= value_min) value_min = a_array[i];
 			}
 			if (c < 10) { localStr = "0"; } else { localStr = ""; }
 			localStr += IntToStr(c)+". ";
 			Form1->Memo2->Lines->Add(localStr+"ћинимальное: "
-			+IntToStr(min_number)+", максимальное: "+IntToStr(max_number));
+			+IntToStr(value_min)+", максимальное: "+IntToStr(value_max));
 		}
 		if (c == amount_number) {
 			_endthread();
@@ -80,6 +80,7 @@ void Thread3( void* pParams ) {
 	int c = 0;
 	String localStr;
 
+	Form1->Memo3->Lines->Clear();
 	while (1) {
 		sum = 0;
 		if (c < count) {
@@ -101,17 +102,9 @@ void Thread3( void* pParams ) {
 	}
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::PrActionExecute(TObject *Sender)
-{
+void __fastcall TForm1::PrActionExecute(TObject *Sender) {
 	if ((time_sleep = StrToInt(Form1->Edit1->Text))&&
 	(amount_number = StrToInt(Form1->Edit2->Text))) {
-		if (time_sleep < 100) {
-			time_sleep = 100;
-		}
-		Form1->Memo1->Lines->Clear();
-		Form1->Memo2->Lines->Clear();
-		Form1->Memo3->Lines->Clear();
-		Form1->ProgressBar1->Position = 0;
 		count = 0;
 		hthread1 = (HANDLE)_beginthreadNT(Thread1, 4096, (void *)2, NULL, 0, &threadid1);
 		hthread2 = (HANDLE)_beginthreadNT(Thread2, 4096, (void *)3, NULL, 0, &threadid2);
@@ -122,8 +115,7 @@ void __fastcall TForm1::PrActionExecute(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::PrStopExecute(TObject *Sender)
-{
+void __fastcall TForm1::PrStopExecute(TObject *Sender) {
 	TerminateThread(hthread1, 0);
 	TerminateThread(hthread2, 0);
 	TerminateThread(hthread3, 0);
@@ -132,8 +124,7 @@ void __fastcall TForm1::PrStopExecute(TObject *Sender)
 	Form1->Edit1->Enabled = True;
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::FormCreate(TObject *Sender)
-{
+void __fastcall TForm1::FormCreate(TObject *Sender) {
 	Form1->Edit1->Text = IntToStr(time_sleep);
 	Form1->Edit2->Text = IntToStr(amount_number);
 	Form1->PrStop->Enabled = False;
